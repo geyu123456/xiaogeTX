@@ -1,15 +1,16 @@
 package com.example.xiaogetx.ui.manager
 
-import android.net.Uri
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.xiaogetx.R
 import com.example.xiaogetx.logic.model.Goods
-import com.example.xiaogetx.logic.model.GoodsListRsp
+
 
 class GoodsAdapter(private  val goodsListFragment: GoodsListFragment,private  val goodsList:List<Goods>):RecyclerView.Adapter<GoodsAdapter.ViewHolder>() {
 
@@ -29,7 +30,9 @@ class GoodsAdapter(private  val goodsListFragment: GoodsListFragment,private  va
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val goodsItem = goodsList[position]
         holder.goodsName.text = goodsItem.name
-        holder.goodPic.setImageURI(Uri.parse(goodsItem.imageUrls.get(0)))
+        Glide.with(goodsListFragment).load(goodsItem.imageUrls.get(0)).into(holder.goodPic)
+
+        //holder.goodPic.setImageBitmap(bitmap)
     }
 
     override fun getItemCount(): Int {
