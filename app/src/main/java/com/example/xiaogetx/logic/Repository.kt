@@ -1,11 +1,14 @@
 package com.example.xiaogetx.logic
 
+import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.xiaogetx.logic.dao.GoodsDao
+import com.example.xiaogetx.logic.model.AddGoodsReq
 import com.example.xiaogetx.logic.model.Goods
 import com.example.xiaogetx.logic.model.GoodsListRsp
 import com.example.xiaogetx.logic.network.GoodsNetwork
 import kotlinx.coroutines.Dispatchers
+import org.json.JSONObject
 import java.lang.RuntimeException
 import kotlin.coroutines.CoroutineContext
 
@@ -20,6 +23,19 @@ object Repository {
             Result.failure(RuntimeException(rsp.message))
         }
 
+    }
+
+    /**
+     * 新增商品
+     */
+    fun addGoods(req:AddGoodsReq)= fire(Dispatchers.IO){
+        val rsp = GoodsNetwork.addGoods(req);
+        Log.d("add goods:{}",rsp.message)
+        if (rsp.code == 200) {
+            Result.success(rsp.data)
+        } else {
+            Result.failure(RuntimeException(rsp.message))
+        }
     }
 
     fun saveGoods(goods: Goods) = GoodsDao.saveGoods(goods)

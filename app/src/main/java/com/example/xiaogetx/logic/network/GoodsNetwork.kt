@@ -1,5 +1,6 @@
 package com.example.xiaogetx.logic.network
 
+import com.example.xiaogetx.logic.model.AddGoodsReq
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -9,13 +10,12 @@ import kotlin.coroutines.suspendCoroutine
 
 object GoodsNetwork {
 
-    private  val goodsService=ServiceCreator.create(GoodsService::class.java)
+    private val goodsService = ServiceCreator.create(GoodsService::class.java)
 
 
-    suspend fun  getAllGoods()= goodsService.queryGoodsList().await();
+    suspend fun getAllGoods() = goodsService.queryGoodsList().await();
 
-
-
+    suspend fun addGoods(req: AddGoodsReq) = goodsService.addGoods(req).await();
 
 
     private suspend fun <T> Call<T>.await(): T {
