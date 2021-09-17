@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
+import android.widget.SpinnerAdapter
 import android.widget.Toast
 import com.example.xiaogetx.MainActivity
 import com.example.xiaogetx.R
@@ -20,9 +22,18 @@ import kotlin.concurrent.thread
 
 class AddGoodsActivity : AppCompatActivity() {
 
+
+    private  lateinit var adpter: SpinnerAdapter
+    private fun initView(){
+        val list= listOf("鲜花","布置")
+        adpter=ArrayAdapter(this,R.layout.classify_item,list)
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_goods)
+        initView()
 
         addGoodsBtn.setOnClickListener {
             val name = goodsName.text.toString();
@@ -51,7 +62,6 @@ class AddGoodsActivity : AppCompatActivity() {
             Toast.makeText(this,"保存成功",Toast.LENGTH_SHORT)
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
 
         }
 

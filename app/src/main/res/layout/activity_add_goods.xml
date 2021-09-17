@@ -9,8 +9,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout8"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="414dp"
+        android:layout_height="49dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="66dp"
         android:layout_marginEnd="1dp"
@@ -53,10 +53,10 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499">
+        app:layout_constraintVertical_bias="0.428">
 
         <TextView
 
@@ -67,13 +67,14 @@
             android:text="商品分类"
             android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/goodsclassifyEt"
+        <Spinner
+            android:id="@+id/spClassify"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName" />
+            android:prompt="@string/spinner_classify"
+            android:spinnerMode="dropdown"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -87,10 +88,10 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234">
+        app:layout_constraintVertical_bias="0.206">
 
         <TextView
 
@@ -107,7 +108,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPersonName" />
+            android:digits="0123456789."
+            android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
@@ -124,7 +126,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366">
+        app:layout_constraintVertical_bias="0.312">
 
         <TextView
 
