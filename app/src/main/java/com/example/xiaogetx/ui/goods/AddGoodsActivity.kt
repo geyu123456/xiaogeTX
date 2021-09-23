@@ -28,6 +28,9 @@ class AddGoodsActivity : AppCompatActivity() {
         val list= listOf("鲜花","布置")
         adpter=ArrayAdapter(this,R.layout.classify_item,list)
 
+        spClassify.adapter=adpter
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
