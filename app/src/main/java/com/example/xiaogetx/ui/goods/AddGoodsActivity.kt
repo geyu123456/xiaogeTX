@@ -23,12 +23,16 @@ import kotlin.concurrent.thread
 class AddGoodsActivity : AppCompatActivity() {
 
 
-    private  lateinit var adpter: SpinnerAdapter
+    private  lateinit var adpter: GoodsClassifyAdapter
     private fun initView(){
-        val list= listOf("鲜花","布置")
-        adpter=ArrayAdapter(this,R.layout.classify_item,list)
-
+        val list= ArrayList<GoodsClassifyItem>()
+        list.add(GoodsClassifyItem("1","鲜花"))
+        list.add(GoodsClassifyItem("2","布置"))
+        adpter= GoodsClassifyAdapter(this,list)
         spClassify.adapter=adpter
+       /* adpter=ArrayAdapter(this,R.layout.classify_item,list)
+
+        spClassify.adapter=adpter*/
 
 
     }
