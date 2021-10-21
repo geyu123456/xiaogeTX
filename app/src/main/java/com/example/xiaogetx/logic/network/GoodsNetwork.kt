@@ -18,6 +18,9 @@ object GoodsNetwork {
     suspend fun addGoods(req: AddGoodsReq) = goodsService.addGoods(req).await();
 
 
+    suspend fun queryClassify() = goodsService.queryClassifyList().await();
+
+
     private suspend fun <T> Call<T>.await(): T {
         return suspendCoroutine { continuation ->
             enqueue(object : Callback<T> {

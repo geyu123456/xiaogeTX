@@ -38,6 +38,19 @@ object Repository {
         }
     }
 
+    /**
+     * 查询分类列表
+     */
+        fun queryClassify()= fire(Dispatchers.IO){
+        val rsp = GoodsNetwork.queryClassify();
+        Log.d("add goods:{}",rsp.message)
+        if (rsp.code == 200) {
+            Result.success(rsp.data)
+        } else {
+            Result.failure(RuntimeException(rsp.message))
+        }
+    }
+
     fun saveGoods(goods: Goods) = GoodsDao.saveGoods(goods)
 
 

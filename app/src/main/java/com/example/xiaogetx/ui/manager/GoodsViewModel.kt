@@ -24,6 +24,10 @@ class GoodsViewModel:ViewModel() {
         searchLiveData.value = query
     }
 
+
+
+
+
     fun saveGoods(goods: Goods) = Repository.saveGoods(goods)
 
 
