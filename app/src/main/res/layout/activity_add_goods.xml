@@ -8,21 +8,51 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout8"
+        android:id="@+id/goods_photos_llo"
+        android:layout_width="414dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goods_classify_llo">
+
+        <Button
+            android:id="@+id/addPhotosBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="74dp"
+            android:layout_marginBottom="81dp"
+            android:gravity="center"
+            android:text="添加图片" />
+
+        <ImageView
+            android:id="@+id/good_photo_igv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/goods_name_llo"
         android:layout_width="414dp"
         android:layout_height="49dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="66dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="475dp"
         android:orientation="horizontal"
 
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.095">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/good_name"
@@ -34,7 +64,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/goodsName"
+            android:id="@+id/goodsNameEt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -42,12 +72,12 @@
             android:inputType="textPersonName" />
     </LinearLayout>
 
+
     <LinearLayout
-        android:id="@+id/linearLayout9"
+        android:id="@+id/goods_price_llo"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:orientation="horizontal"
@@ -55,43 +85,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.428">
-
-        <TextView
-
-            android:layout_width="13dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="商品分类"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/spClassify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:prompt="@string/spinner_classify"
-            android:spinnerMode="dropdown"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout10"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206">
+        app:layout_constraintTop_toBottomOf="@+id/goods_name_llo"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
 
@@ -107,26 +102,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:ems="10"
             android:digits="0123456789."
+            android:ems="10"
             android:inputType="numberDecimal" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout7"
+        android:id="@+id/goods_desc_llo"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="286dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.312">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/goods_price_llo"
+        app:layout_constraintTop_toBottomOf="@+id/goods_price_llo"
+        app:layout_constraintVertical_bias="0.0">
+
 
         <TextView
 
@@ -147,17 +140,49 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/goods_classify_llo"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goods_desc_llo">
+
+        <TextView
+
+            android:layout_width="26dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="商品分类"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spClassify"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:prompt="@string/spinner_classify"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_goods_llo"
+        android:layout_width="408dp"
+        android:layout_height="97dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout8">
+        app:layout_constraintTop_toBottomOf="@+id/goods_classify_llo"
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/addGoodsBtn"

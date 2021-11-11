@@ -1,10 +1,12 @@
 package com.example.xiaogetx.ui.goods
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -19,7 +21,6 @@ import com.example.xiaogetx.ui.manager.ClassifyViewModel
 import com.google.gson.Gson
 
 import kotlinx.android.synthetic.main.activity_add_goods.*
-import kotlinx.android.synthetic.main.fragment_place.*
 import kotlinx.coroutines.runBlocking
 
 import java.lang.RuntimeException
@@ -29,9 +30,10 @@ class AddGoodsActivity : AppCompatActivity() {
     val viewModel by lazy { ViewModelProviders.of(this).get(ClassifyViewModel::class.java) }
 
 
+    val formAlbum=2
+
     private  lateinit var adpter: GoodsClassifyAdapter
     private fun initView(){
-
 
       /*  var list= ArrayList<GoodsClassifyItem>()
         list.add(GoodsClassifyItem("1","鲜花"))
@@ -46,6 +48,30 @@ class AddGoodsActivity : AppCompatActivity() {
 
 
     }
+
+
+    private  fun getBitmapFromUri(uri: Uri)=contentResolver
+        .openFileDescriptor(uri,"r")?.use {
+            BitmapFactory.decodeFileDescriptor(it.fileDescriptor)
+        }
+
+
+
+      override  fun onActivityResult(requestCode:Int,resultCode: Int,data: Intent?){
+          super.onActivityResult(requestCode,resultCode,data)
+          when(requestCode){
+              formAlbum->{
+                  if(resultCode== Activity.RESULT_OK&&data!=null){
+                      data.data?.let { uri->
+                          val bitmap=getBitmapFromUri(uri)
+                          good_photo_igv.setImageBitmap(bitmap)
+                      }
+                  }
+              }
+
+          }
+
+      }
 
 
 
@@ -67,9 +93,15 @@ class AddGoodsActivity : AppCompatActivity() {
                 result.exceptionOrNull()?.printStackTrace()
             }
         })
+        addPhotosBtn.setOnClickListener {
+            val intent=Intent(Intent.ACTION_OPEN_DOCUMENT)
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            intent.type="image/*"
+            startActivityForResult(intent,formAlbum)
+        }
 
         addGoodsBtn.setOnClickListener {
-            val name = goodsName.text.toString();
+            val name = goodsNameEt.text.toString();
 
             val description = descriptionEt.text.toString()
             val price = priceEt.text.toString()
@@ -99,4 +131,7 @@ class AddGoodsActivity : AppCompatActivity() {
 
 
     }
+
+
+
 }

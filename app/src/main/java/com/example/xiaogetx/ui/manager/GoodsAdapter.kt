@@ -15,7 +15,7 @@ import com.example.xiaogetx.logic.model.Goods
 class GoodsAdapter(private  val goodsListFragment: GoodsListFragment,private  val goodsList:List<Goods>):RecyclerView.Adapter<GoodsAdapter.ViewHolder>() {
 
     inner  class ViewHolder(view : View): RecyclerView.ViewHolder(view){
-        val goodsName:TextView=view.findViewById(R.id.goodsName)
+        val goodsName:TextView=view.findViewById(R.id.photos)
         val  goodPic:ImageView=view.findViewById(R.id.goodsUrl)
 
     }
